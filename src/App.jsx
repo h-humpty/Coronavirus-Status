@@ -1,45 +1,37 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React from 'react';
+import { Cards, CountryPicker, Charts } from './components';
+import { fetchData } from './api/';
+import styles from './App.module.css';
+import image from './statics/image.png';
 
-function App() {
-  const [count, setCount] = useState(0)
+class App extends React.Component {
+  state = {
+    data: {},
+    country: '',
+  }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+  async componentDidMount() {
+    const data = await fetchData();
+
+    this.setState({ data });
+  }
+
+  handleCountryChange = async (country) => {
+    const data = await fetchData(country);
+
+    this.setState({ data, country: country });
+  }
+
+  render() {
+    const { data, country } = this.state;
+
+    return (
+      <div className={styles.container}>
+        <img className={styles.image} src={image} alt="COVID-19" />
+        <Cards data={data} />
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;
