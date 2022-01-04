@@ -16,5 +16,6 @@ for more you can learn here https://vitejs.dev/
 
 ### project home page
 
-https://github.com/Ujjalzaman/CoronaVirus-Statistics-fullStack/issues/1#issue-1092986705 
+![homepage screenshot](https://user-images.githubusercontent.com/49386888/148007329-9908dac1-d159-4973-85ea-b161efc49f49.png)
+
 
