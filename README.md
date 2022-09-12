@@ -8,7 +8,7 @@ thats why i have used vite here. it's extremly fast. it's compile which i file w
 for more you can learn here https://vitejs.dev/
 
 ### How to start the project.
--> git clone https://github.com/Ujjalzaman/CoronaVirus-Statistics-fullStack
+-> git clone https://github.com/passionatedeveloper223/Coronavirus-Status
 --> npm i
 --> npm run dev
 
